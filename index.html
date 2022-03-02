@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Joe's Hot Dogs</title>
+        <meta name="author" content="Mya Rios">
+        <meta name="description" content="Assignment 3 - Task 1 - Using an associative array of items and prices">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div>
+            <h1>Joe's Hot Dogs Order Form</h1>
+            <p>Welcome to Joe's Hotdogs stand - Place an order below!</p>
+        </div>
+        <div id="menu">
+            <div class="menu-items">
+                <p>Hotdogs</p>
+                <p>Fries</p>
+                <p>Soda</p>
+                <p>Sauerkraut</p>
+            </div>
+            <div class="menu-items">
+                <p>$4.00</p>
+                <p>$3.50</p>
+                <p>$1.50</p>
+                <p>$1.00</p>
+            </div>
+        </div>
+        
+        <div id="form-container">
+            <form action="#" method="">
+                <label for="hotdogs">Hotdogs</label>
+                <input type="text" id="hotdogs" name="hotdogs" placeholder="Quantity"/><br/>
+                
+                <label for="fries">Fries</label>
+                <input type="text" id="fries" name="fries" placeholder="Quantity"/><br/>
+
+                <label for="soda">Soda</label>
+                <input type="text" id="soda" name="soda" placeholder="Quantity"/><br/>
+
+                <label for="soda">Sauerkraut</label>
+                <input type="text" id="sauerkraut" name="sauerkraut" placeholder="Quantity"/><br/>
+                
+                <input type="button" id="submit-order-btn" value="Submit Order"/>
+            </form>
+
+            <div id="receipt">
+                <div>Order was placed!</div>
+                <div id="final-order">
+                    <div>Final Order</div>
+                    <div id="ordered-items"></div>
+                </div>
+                <div id="total">
+                    <span>Total Amount: </span>
+                    <span id="calculated-amount"></span>
+                </div>
+            </div>
+        </div>
+        
+        <script src="js/index.js" async defer></script>
+    </body>
+</html>

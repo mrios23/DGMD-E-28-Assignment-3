@@ -16,6 +16,7 @@ window.onload = () => {
 
     submitOrderBtn.addEventListener("click", ()=>{
 
+        // method to calculate final order
         let finalOrder = [];
         let total = 0;
 
@@ -31,6 +32,24 @@ window.onload = () => {
                 // add item & amount to final order
                 finalOrder[item] = amount;
             }
+        }
+
+        // method to display receipt
+        let form = document.getElementById("form-container");
+        form.style.display = "none";
+
+        let receipt = document.getElementById("receipt");
+        // receipt.style.visibility = "visible";
+        receipt.style.display = "inline";
+
+        calculatedTotal.innerHTML = total;
+
+        let orderDiv = document.getElementById("ordered-items");
+
+        for(food in finalOrder){
+            let foodDiv = document.createElement("div");
+            foodDiv.innerHTML = food + " x " + finalOrder[food];
+            orderDiv.appendChild(foodDiv);
         }
 
         // Debugging info

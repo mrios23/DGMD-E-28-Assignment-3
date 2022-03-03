@@ -16,7 +16,10 @@
 }
 
 #receipt{
-    visibility: hidden;
+    display: none;
+    background-color: bisque;
+    height: 500px;
+    width: 500px;
 }
 
 label {

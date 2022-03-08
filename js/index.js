@@ -7,17 +7,16 @@ menu["sauerkraut"] = 1;
 
 /* global - place order btn */
 const placeOrderBtn = document.getElementById("begin-order-btn");
+/* global - submit order btn */
+const submitOrderBtn = document.getElementById("submit-order-btn");
 
 /* global - total order element */
 const calculatedTotal = document.getElementById("calculated-amount");
 /* global - final order element*/
 const finalOrder = document.getElementById("ordered-items");
-/* global - submit order btn */
-const submitOrderBtn = document.getElementById("submit-order-btn");
 
 /* global - final order array */
 var order = [];
-
 /* global - total order amount */
 var total = 0;
 
@@ -35,17 +34,10 @@ window.onload = () => {
     submitOrderBtn.addEventListener("click", ()=>{
         calculateTotal();
         displayReceipt();
-
-        // Debugging info
-        console.log("Total Amount: " + total);
-        console.log("******FINAL ORDER*******");
-        for(food in order){
-            console.log("Number of " + item + "ordered: " + order[food]);
-        }
     });
 }
 
-// method to calculate final order
+// Function to calculate final order
 function calculateTotal(){
     for(item in menu){
         let amount = parseFloat(document.getElementById(item).value);
@@ -62,7 +54,7 @@ function calculateTotal(){
     }
 }
 
-// method to display receipt
+// Function to display receipt
 function displayReceipt(){
     let form = document.getElementById("order-content");
     form.style.display = "none";

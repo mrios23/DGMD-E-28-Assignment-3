@@ -9,6 +9,8 @@ menu["sauerkraut"] = 1;
 const placeOrderBtn = document.getElementById("begin-order-btn");
 /* global - submit order btn */
 const submitOrderBtn = document.getElementById("submit-order-btn");
+/* global - modify new order btn */
+const modifyOrderBtn = document.getElementById("modify-order-btn");
 
 /* global - total order element */
 const calculatedTotal = document.getElementById("calculated-amount");
@@ -23,17 +25,31 @@ var total = 0;
 window.onload = () => {
     placeOrderBtn.addEventListener("click", () =>{
         // hide welcome page content
-        let homePage = document.getElementById("welcome-page");
-        homePage.style.display = "none";
+       updateElementStyle("welcome-page", "none");
 
         // show order page content
-        let orderPage = document.getElementById("order-content");
-        orderPage.style.display = "block";
+        updateElementStyle("order-content", "block");
     });
 
     submitOrderBtn.addEventListener("click", ()=>{
         calculateTotal();
         displayReceipt();
+    });
+
+    modifyOrderBtn.addEventListener("click", ()=>{
+        // clearing total, order, and final order array
+        total = 0;
+        order = [];
+        finalOrder.innerHTML = "";
+
+        // hide welcome page content        
+        updateElementStyle("welcome-page", "none");
+      
+        // show order page content
+        updateElementStyle("order-content", "block")
+
+        // hide reciept
+        updateElementStyle("receipt", "none");
     });
 }
 
@@ -56,11 +72,11 @@ function calculateTotal(){
 
 // Function to display receipt
 function displayReceipt(){
-    let form = document.getElementById("order-content");
-    form.style.display = "none";
-
-    let receipt = document.getElementById("receipt");
-    receipt.style.display = "inline";
+    // hide order form
+    updateElementStyle("order-content", "none");
+    
+    // display receipt
+    updateElementStyle("receipt", "inline");
 
     let dollarUS = Intl.NumberFormat("en-US", {
         style: "currency",
@@ -74,4 +90,10 @@ function displayReceipt(){
         foodDiv.innerHTML = food + " x " + order[food];
         finalOrder.appendChild(foodDiv);
     }
+}
+
+// Function to show/hide specific page based on element ID
+function updateElementStyle(elementID, styleType){
+    let elementDiv = document.getElementById(elementID);
+    elementDiv.style.display = styleType;
 }

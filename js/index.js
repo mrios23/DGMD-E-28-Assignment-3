@@ -5,6 +5,9 @@ menu["fries"] = 3.50;
 menu["soda"] = 1.50;
 menu["sauerkraut"] = 1;
 
+/* global - place order btn */
+const placeOrderBtn = document.getElementById("begin-order-btn");
+
 /* global - total order element */
 const calculatedTotal = document.getElementById("calculated-amount");
 /* global - final order element*/
@@ -19,6 +22,15 @@ var order = [];
 var total = 0;
 
 window.onload = () => {
+    placeOrderBtn.addEventListener("click", () =>{
+        // hide welcome page content
+        let homePage = document.getElementById("welcome-page");
+        homePage.style.display = "none";
+
+        // show order page content
+        let orderPage = document.getElementById("order-content");
+        orderPage.style.display = "block";
+    });
 
     submitOrderBtn.addEventListener("click", ()=>{
         calculateTotal();
@@ -52,13 +64,18 @@ function calculateTotal(){
 
 // method to display receipt
 function displayReceipt(){
-    let form = document.getElementById("form-container");
+    let form = document.getElementById("order-content");
     form.style.display = "none";
 
     let receipt = document.getElementById("receipt");
     receipt.style.display = "inline";
 
-    calculatedTotal.innerHTML = total;
+    let dollarUS = Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+    });
+
+    calculatedTotal.innerHTML = dollarUS.format(total);
 
     for(food in order){
         let foodDiv = document.createElement("div");

@@ -3,61 +3,86 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Joe's Hot Dogs</title>
-        <meta name="author" content="Mya Rios">
-        <meta name="description" content="Assignment 3 - Task 1 - Using an associative array of items and prices">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/style.css">
+        <title>Joe's Hotdogs</title>
+        <meta name="author" content="Mya Rios"/>
+        <meta name="description" content="Assignment 3 - Task 1 - Using an associative array of items and prices"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="/css/sytle.css">
     </head>
     <body>
-        <div>
-            <h1>Joe's Hot Dogs Order Form</h1>
-            <p>Welcome to Joe's Hotdogs stand - Place an order below!</p>
-        </div>
-        <div id="menu">
-            <div class="menu-items">
-                <p>Hotdogs</p>
-                <p>Fries</p>
-                <p>Soda</p>
-                <p>Sauerkraut</p>
+        <div class="content">
+            <div id="welcome-page">
+                <h1>WELCOME TO JOE'S</h1><br/>
+                <h2>We are pleased to serve you.</h2>
+                <h2>Place your order below!</h2>
+                <h3>Thank you!</h3>
+                <button id="begin-order-btn">Place Order!</button>
             </div>
-            <div class="menu-items">
-                <p>$4.00</p>
-                <p>$3.50</p>
-                <p>$1.50</p>
-                <p>$1.00</p>
+            <div id="order-content">
+                <form action="#">
+                    <h1>Joe's Hot Dogs</h1>
+                    <h1>Order Form</h1>
+                    <div class="row">
+                        <!-- hot dog & fries -->
+                        <div class="column">
+                            <div id="hotdog-content">
+                                <img class="menu-item" src="/img/hotdog.jpg" alt="hotdog"/>
+                                <div>
+                                    <label for="hotdogs">Joe's Famous Dog!</label>
+                                    <p>$4.00</p>
+                                    <input type="text" id="hotdogs" name="hotdogs" placeholder="Quantity"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div id="fries-content">
+                                <img class="menu-item" src="/img/fries.jpg" alt="fries"/>
+                                <div>
+                                    <label for="fries">The Dog's Best Friend</label>
+                                    <p>$3.50</p>
+                                    <input type="text" id="fries" name="fries" placeholder="Quantity"/>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- soda & sauerkraut -->
+                        <div class="column">
+                            <div id="soda-content">
+                                <img class="menu-item" src="/img/soda.jpg" alt="soda"/>
+                                <div>
+                                    <label for="soda">Thirst Quencher</label>
+                                    <p>$1.50</p>
+                                    <input type="text" id="soda" name="soda" placeholder="Quantity"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div id="sauerkraut-contnet">
+                                <img class="menu-item" src="/img/sauerkraut.jpg" alt="sauerkraut"/>
+                                <div>
+                                    <label for="soda">The Dog's Sidekick</label>
+                                    <p>$1.00</p>
+                                    <input type="text" id="sauerkraut" name="sauerkraut" placeholder="Quantity"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="button" id="submit-order-btn" value="Submit Order"/>
+                </form>
+            </div>
+            <div id="receipt">
+                <h1>Congrats your order was placed!</h1>
+                <div id="final-order">
+                    <h3>Review Order Items Below</h3>
+                    <div id="ordered-items"></div>
+                </div>
+                <div id="total">
+                    <span>Total Amount: </span>
+                    <span id="calculated-amount"></span>
+                </div>
             </div>
         </div>
-        
-        <div id="form-container">
-            <form action="#" method="">
-                <label for="hotdogs">Hotdogs</label>
-                <input type="text" id="hotdogs" name="hotdogs" placeholder="Quantity"/><br/>
-                
-                <label for="fries">Fries</label>
-                <input type="text" id="fries" name="fries" placeholder="Quantity"/><br/>
-
-                <label for="soda">Soda</label>
-                <input type="text" id="soda" name="soda" placeholder="Quantity"/><br/>
-
-                <label for="soda">Sauerkraut</label>
-                <input type="text" id="sauerkraut" name="sauerkraut" placeholder="Quantity"/><br/>
-                
-                <input type="button" id="submit-order-btn" value="Submit Order"/>
-            </form>
-        </div>
-        <div id="receipt">
-            <div>Order was placed!</div>
-            <div id="final-order">
-                <div>Final Order</div>
-                <div id="ordered-items"></div>
-            </div>
-            <div id="total">
-                <span>Total Amount: </span>
-                <span id="calculated-amount"></span>
-            </div>
-        </div>
-        
-        <script src="js/index.js" async defer></script>
+        <script src="/js/index.js" async defer></script>
     </body>
 </html>
